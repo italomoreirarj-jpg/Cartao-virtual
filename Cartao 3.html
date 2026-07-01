@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Ítalo Dantas</title>
+<meta property="og:title" content="Dr. Ítalo Dantas">
+<meta property="og:description" content="Cirurgião Dentista · Harmonização Orofacial · CRO-RJ 55798">
+<meta property="og:image" content="https://i.imgur.com/iZWtJ8f.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/iZWtJ8f.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0b0b0b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 24px 16px 40px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 360px;
+    background: linear-gradient(160deg, #111111 0%, #181818 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(212,175,55,0.12), 0 8px 32px rgba(0,0,0,0.6);
+    border: 1px solid rgba(212,175,55,0.15);
+  }
+
+  /* Header */
+  .header {
+    background: #0f0f0f;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+    padding: 28px 24px 22px;
+    text-align: center;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: #d4af37;
+    margin: 16px auto 0;
+  }
+
+  .name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #d4af37;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+  }
+  .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 5px;
+    letter-spacing: 0.04em;
+  }
+  .cro {
+    font-size: 0.68rem;
+    color: rgba(212,175,55,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* Body */
+  .body {
+    padding: 20px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Contact row */
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-row:hover { background: rgba(212,175,55,0.06); border-color: rgba(212,175,55,0.2); }
+  .contact-row .icon { font-size: 1rem; flex-shrink: 0; }
+
+  /* Accordion addresses */
+  .address-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .address-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,175,55,0.5);
+    padding: 0 2px;
+    margin-bottom: 2px;
+  }
+
+  .accordion {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(212,175,55,0.18);
+    background: rgba(212,175,55,0.04);
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    color: #d4af37;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+    text-align: left;
+    gap: 8px;
+  }
+  .accordion-trigger:hover { background: rgba(212,175,55,0.08); }
+
+  .trigger-left { display: flex; align-items: center; gap: 9px; }
+  .trigger-left .icon { font-size: 0.95rem; }
+
+  .chevron {
+    font-size: 0.7rem;
+    color: rgba(212,175,55,0.5);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .accordion.open .chevron { transform: rotate(180deg); }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .accordion.open .accordion-body { max-height: 200px; }
+
+  .accordion-inner {
+    padding: 0 14px 14px;
+    border-top: 1px solid rgba(212,175,55,0.1);
+    padding-top: 12px;
+  }
+
+  .address-line {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+  .address-line strong {
+    display: block;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 0.72rem;
+    color: #d4af37;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .map-link:hover { opacity: 1; }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212,175,55,0.2), transparent);
+    margin: 4px 0;
+  }
+
+  /* CTA buttons */
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #d4af37, #b8952a);
+    color: #0b0b0b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid rgba(212,175,55,0.4);
+    color: #d4af37;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(212,175,55,0.08); border-color: #d4af37; }
+
+  /* Social row */
+  .social-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 0 2px;
+  }
+  .social-row a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .social-row a:hover { color: #d4af37; }
+  .social-dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: rgba(212,175,55,0.3);
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="header">
+    <div class="name">Dr. Ítalo Dantas</div>
+    <div class="title">Cirurgião Dentista · Harmonização Orofacial</div>
+    <div class="cro">CRO-RJ 55798</div>
+  </div>
+
+  <div class="body">
+
+    <!-- Telefone -->
+    <a class="contact-row" href="tel:+5521967083839">
+      <span class="icon">📞</span>
+      <span>(21) 96708-3839</span>
+    </a>
+
+    <!-- Endereços -->
+    <div class="address-group">
+      <div class="address-label">Consultórios</div>
+
+      <!-- Barra da Tijuca -->
+      <div class="accordion" id="acc-barra">
+        <button class="accordion-trigger" onclick="toggleAccordion('acc-barra')">
+          <span class="trigger-left">
+            <span class="icon">📍</span>
+            Barra da Tijuca
+          </span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="address-line">
+              <strong>Clínica Barra</strong>
+              Av. das Américas, 7007 — Bloco 2, Sala 210<br>
+              Barra da Tijuca, Rio de Janeiro — RJ
+            </div>
+            <a class="map-link" href="https://maps.google.com/?q=Av.+das+Américas,+7007,+Barra+da+Tijuca,+Rio+de+Janeiro" target="_blank">
+              🗺 Ver no mapa →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tijuca -->
+      <div class="accordion" id="acc-tijuca">
+        <button class="accordion-trigger" onclick="toggleAccordion('acc-tijuca')">
+          <span class="trigger-left">
+            <span class="icon">📍</span>
+            Tijuca
+          </span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="address-line">
+              <strong>Clínica Tijuca</strong>
+              Rua Eng. Enaldo Cravo Peixoto, 105 — Sala 905<br>
+              Tijuca, Rio de Janeiro — RJ
+            </div>
+            <a class="map-link" href="https://maps.google.com/?q=Rua+Engenheiro+Enaldo+Cravo+Peixoto,+105,+Tijuca,+Rio+de+Janeiro" target="_blank">
+              🗺 Ver no mapa →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- CTAs -->
+    <a class="btn-primary" href="https://wa.me/5521967083839?text=Olá%20Dr.%20Ítalo%2C%20gostaria%20de%20agendar%20uma%20consulta.">
+      💬 Agendar Consulta
+    </a>
+    <a class="btn-secondary" href="mailto:italodantasrj@yahoo.com.br">
+      ✉ E-mail
+    </a>
+
+    <!-- Social -->
+    <a class="btn-secondary" href="https://www.instagram.com/dr.italodantass?igsh=dnhxMmE5ZDMwMWN0&utm_source=qr" target="_blank">
+      📷 Instagram
+    </a>
+
+  </div>
+</div>
+
+<script>
+  function toggleAccordion(id) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('open');
+    // Fecha todos
+    document.querySelectorAll('.accordion').forEach(a => a.classList.remove('open'));
+    // Abre o clicado (se estava fechado)
+    if (!isOpen) el.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
